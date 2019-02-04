@@ -2,6 +2,23 @@
 
 @section('content')
 
+<?php
+
+use App\User;
+$datingCount = User::datingProfileExists(Auth::User()['id']);
+if($datingCount == 1){
+  $datingCountText = "Edit Profile";
+  $datingCountText2 = "to represent yourself better!";
+} else {
+  $datingCountText = "Add Profile";
+  $datingCountText2 = "so people will know more about you!";
+}
+
+$datingProfile = User::datingProfileDetails(Auth::User()['id']);
+
+
+?>
+
 <body class="login-page sidebar-collapse">
 
   <div class="page-header header-filter" id="registerpagehdr">
@@ -12,7 +29,7 @@
             <form id="datingForm" name="datingForm" class="form" method="post" action="{{route('step/2')}}">
               @csrf
               <div class="card-header card-header-rose text-center">
-                <h2 class="card-title">Fill Your Profile</h2>
+                <h2 class="card-title">{{$datingCountText}}</h2>
 {{--                 <div class="social-line">
                   <a href="#pablo" class="btn btn-just-icon btn-link">
                     <i class="fa fa-facebook-square"></i>
@@ -25,7 +42,7 @@
                   </a>
                 </div> --}}
               </div>
-              <p class="description text-center">so people will know more about you!</p>
+              <p class="description text-center">{{$datingCountText2}}</p>
               <div class="card-body">
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -33,11 +50,11 @@
                         <i class="material-icons">person</i>
                       </span>
                     </div>
-                        <select id="marital_status" name="marital_status" class="form-control selectpicker" data-style="btn btn-link">
-                        <option value="single">Single</option>
-                        <option value="relationship">In A Relationship</option>
-                        <option value="married">Married</option>
-                        <option value="complicated">It's Complicated</option>
+                          <select id="marital_status" name="marital_status" class="form-control selectpicker" data-style="btn btn-link">
+                          <option value="single" @if (!empty($datingProfile['marital_status']) && $datingProfile['marital_status']=="single") selected="" @endif>Single</option>
+                          <option value="relationship" @if (!empty($datingProfile['marital_status']) && $datingProfile['marital_status']=="relationship") selected="" @endif>In A Relationship</option>
+                          <option value="married" @if (!empty($datingProfile['marital_status']) && $datingProfile['marital_status']=="married") selected="" @endif>Married</option>
+                          <option value="complicated" @if (!empty($datingProfile['marital_status']) && $datingProfile['marital_status']=="complicated") selected="" @endif>It's Complicated</option>
                         </select>
                 </div>
                 <div class="input-group">
@@ -47,10 +64,10 @@
                       </span>
                     </div>
                         <select id="body_type" name="body_type" class="form-control selectpicker" data-style="btn btn-link">
-                        <option value="slim">Slim</option>
-                        <option value="average">Average</option>
-                        <option value="athletic">Athletic</option>
-                        <option value="heavy">Heavy</option>
+                          <option value="slim"  @if (!empty($datingProfile['body_type']) && $datingProfile['body_type']=="slim") selected="" @endif>Slim</option>
+                          <option value="average" @if (!empty($datingProfile['body_type']) && $datingProfile['body_type']=="average") selected="" @endif>Average</option>
+                          <option value="athletic" @if (!empty($datingProfile['body_type']) && $datingProfile['body_type']=="athletic") selected="" @endif>Athletic</option>
+                          <option value="heavy" @if (!empty($datingProfile['body_type']) && $datingProfile['body_type']=="heavy") selected="" @endif>Heavy</option>
                         </select>
                 </div>
                 <div class="input-group">
@@ -60,7 +77,7 @@
                     </span>
                   </div>
                   <!-- markup -->
-                  <input class="datepicker form-control" id="date_of_birth" name="date_of_birth" type="text" placeholder="Date of Birth">
+                  <input class="datepicker form-control" id="date_of_birth" name="date_of_birth" type="text" placeholder="Date of Birth" @if (!empty($datingProfile['date_of_birth'])) value="{{ $datingProfile['date_of_birth'] }}" @endif>
                 </div>              
                 <div class="input-group">
                   <div class="input-group-prepend">
@@ -68,7 +85,7 @@
                       <i class="material-icons">format_line_spacing</i>
                     </span>
                   </div>
-                  <input id="height" name="height" type="height" class="form-control" placeholder="Height">
+                  <input id="height" name="height" type="height" class="form-control" placeholder="Height" @if (!empty($datingProfile['height'])) value="{{ $datingProfile["height"] }}" @endif>
                 </div>
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -76,11 +93,11 @@
                         <i class="material-icons">info</i>
                       </span>
                     </div>
-                    <textarea id="description" name="description" class="form-control" id="description" rows="3" placeholder="Description"></textarea>
+                    <textarea id="description" name="description" class="form-control" id="description" rows="3" placeholder="Description">@if (!empty($datingProfile['description'])) {{ $datingProfile["description"] }} @endif</textarea>
                 </div>
                 <div class="form-check form-check-radio">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="gender" id="gender1" value="male" checked>
+                        <input class="form-check-input" type="radio" name="gender" id="gender1" value="male" @if (!empty($datingProfile['gender']) && $datingProfile['gender']=="male") checked @endif>
                         Male
                         <span class="circle">
                             <span class="check"></span>
@@ -89,7 +106,7 @@
                 </div>
                 <div class="form-check form-check-radio">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="gender" id="gender2" value="female">
+                        <input class="form-check-input" type="radio" name="gender" id="gender2" value="female" @if (!empty($datingProfile['gender']) && $datingProfile['gender']=="female") checked @endif>
                         Female
                         <span class="circle">
                             <span class="check"></span>

@@ -74,6 +74,7 @@ class UsersController extends Controller
             $userDetail->gender = $data['gender'];
             $userDetail->height = $data['height'];
             $userDetail->marital_status = $data['marital_status'];
+            $userDetail->body_type = $data['body_type'];
             $userDetail->description = $data['description'];
             $userDetail->save();
             return view('users.review');

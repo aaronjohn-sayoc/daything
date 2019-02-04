@@ -45,6 +45,8 @@ Route::get('/admin/check-pwd','AdminController@chkPassword');
 
 Route::get('/admin/view-users','AdminController@viewUsers');
 
+Route::any('/admin/update-user-status', 'AdminController@updateUserStatus');
+
 Route::get('/admin/logout', 'AdminController@logout');
 
 Route::get('/home', 'HomeController@index')->name('home');

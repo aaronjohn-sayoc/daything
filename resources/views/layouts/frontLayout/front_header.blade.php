@@ -1,3 +1,14 @@
+<?php
+
+use App\User;
+$datingCount = User::datingProfileExists(Auth::User()['id']);
+if($datingCount == 1){
+  $datingCountText = "My Profile";
+} else {
+  $datingCountText = "Add Profile";
+}
+
+?>
 
   <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
     <div class="container">
@@ -14,16 +25,11 @@
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           @if(Session::get('userSession'))
-          <li class="dropdown nav-item">
-            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-              <i class="material-icons">account_circle</i> Profile
+          <li class="nav-item">
+            <a href="{{route('step/2')}}" class="nav-link">
+              <i class="material-icons">account_circle</i>{{$datingCountText}} 
             </a>
-            <div class="dropdown-menu dropdown-with-icons">
-              <a href="{{route('step/2')}}" class="dropdown-item">
-                <i class="material-icons">edit</i> Complete Your Profile
-              </a>
-            </div>
-          </li>          
+          </li>        
           <li class="nav-item">
             <a class="nav-link" href="{{route('logout')}}">
               <i class="material-icons">clear</i> Logout

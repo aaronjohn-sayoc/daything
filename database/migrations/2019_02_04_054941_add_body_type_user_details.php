@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddAgeUsersDetails extends Migration
+class AddBodyTypeUserDetails extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddAgeUsersDetails extends Migration
     public function up()
     {
         Schema::table('users_details', function (Blueprint $table) {
-            $table->integer('age');
+            $table->string('body_type');
         });
     }
 

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use App\UsersDetail;
 
 class AdminController extends Controller
 {
@@ -95,6 +96,11 @@ class AdminController extends Controller
         } else {
             return redirect('admin')->with('flash_message_warning', "Please login as admin to access dashboard!");              
         }
+    }
+
+    public function updateUserStatus(Request $request) {
+        $data = $request->all();
+        UsersDetail::where('user_id',$data['user_id'])->update(['approved'=>$data['approved']]);
     }
 
     public function logout() {

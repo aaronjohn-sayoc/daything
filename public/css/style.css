@@ -9,8 +9,18 @@ background-image: url('../images/frontend_images/profile_city.jpg') !important;
 #registerpagehdr {
 	background-image: url('../images/frontend_images/bg7.jpg'); 
 	background-size: cover; 
-	background-position: top center;
+	background-position: center center;
 }
+
+  .login-page .page-header {
+    min-height: 100vh;
+    max-height: 1000px;
+    height: 100%;
+  }
+  .login-page .page-header>.container {
+    padding-top: 10vh;
+    
+  }
 
 .error {
 	color: #f44336 !important;

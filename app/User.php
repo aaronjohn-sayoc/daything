@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\UsersDetail;
 
 class User extends Authenticatable
 {
@@ -32,5 +33,15 @@ class User extends Authenticatable
 
     public function details() {
         return $this->hasOne('App\UsersDetail');
+    }
+
+    public static function datingProfileExists($user_id) {
+        $datingCount = UsersDetail::select('user_id', 'approved')->where(['user_id'=>$user_id, 'approved'=>'1'])->count();
+        return $datingCount;
+    }
+
+    public static function datingProfileDetails($user_id) {
+        $datingProfile = UsersDetail::where('user_id',$user_id)->first();
+        return $datingProfile;
     }
 }

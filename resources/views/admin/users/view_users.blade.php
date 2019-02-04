@@ -148,7 +148,42 @@
     $(document).ready(function() {
     	$(".userStatus").change(function(){
     		var user_id = $(this).attr('rel');
-    		alert(user_id);
+            if($(this).prop("checked") == true){
+                //make status enabled
+                /*alert("Enabled!")*/
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type: 'post',
+                    url: '/admin/update-user-status',
+                    data: {approved:'1', user_id:user_id},
+                    success:function(resp){
+                        alert('Success');
+                    },
+                    error:function(){
+                        alert('Error');
+                    }
+                });
+
+            }else{
+                //make status disabled
+                /*alert("Disabled!")*/
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type: 'post',
+                    url: '/admin/update-user-status',
+                    data: {approved:'0', user_id:user_id},
+                    success:function(resp){
+                        alert('Success');
+                    },
+                    error:function(){
+                        alert('Error');
+                    }
+                });
+            }
     	});
     });
 
