@@ -53,6 +53,7 @@
     <script src="{{asset('extra-libs/multicheck/jquery.multicheck.js')}}"></script>
     <script src="{{asset('extra-libs/DataTables/datatables.min.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

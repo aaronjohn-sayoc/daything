@@ -28,6 +28,9 @@ $datingProfile = User::datingProfileDetails(Auth::User()['id']);
           <div class="card card-login">
             <form id="datingForm" name="datingForm" class="form" method="post" action="{{route('step/2')}}">
               @csrf
+              @if (!empty($datingProfile->user_id))
+                <input type="hidden" class="form-control" name="user_id" value="{{$datingProfile->user_id}}">
+              @endif
               <div class="card-header card-header-rose text-center">
                 <h2 class="card-title">{{$datingCountText}}</h2>
 {{--                 <div class="social-line">

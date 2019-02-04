@@ -30,13 +30,17 @@ class UsersController extends Controller
     }
 
     public function checkEmail(Request $request) {
-    	$data = $request->all();
-    	$usersCount = User::where('email',$data['email'])->count();
-    	if($usersCount>0){
-    		echo 'false';
-    	}else {
-    		echo 'true';
-    	}
+        if (Session::has('userSession')){
+        	$data = $request->all();
+        	$usersCount = User::where('email',$data['email'])->count();
+        	if($usersCount>0){
+        		echo 'false';
+        	}else {
+        		echo 'true';
+        	}       
+        } else {
+            return redirect('/login');
+        }
     }
 
     public function login(Request $request) {
@@ -67,9 +71,17 @@ class UsersController extends Controller
         }
 
         if($request->isMethod('post')) {
+
             $data = $request->all();
-            $userDetail = new UsersDetail;
-            $userDetail->user_id = Auth::User()['id'];
+
+            if(empty($data['user_id'])){
+                $userDetail = new UsersDetail;
+                $userDetail->user_id = Auth::User()['id'];
+            }else{
+                $userDetail = UsersDetail::where('user_id', $data['user_id'])->first();  
+                $userDetail->approved = '0';              
+            }
+
             $userDetail->date_of_birth = $data['date_of_birth'];
             $userDetail->gender = $data['gender'];
             $userDetail->height = $data['height'];
@@ -79,11 +91,27 @@ class UsersController extends Controller
             $userDetail->save();
             return view('users.review');
         }
-        return view('users.step2');
+        if (Session::has('userSession')) {
+            return view('users.step2');      
+        } else {
+            return redirect('/login');
+        }
     }
 
     public function review() {
-        return view('users.review');
+        if (Session::has('userSession')) {
+            $user_id = Auth::User()['id'];
+            $userApproval = UsersDetail::select('approved')->where('user_id',$user_id)->first();
+            if($userApproval->approved == 1) {
+                return redirect('/step/2');
+            } else {
+                return view('users.review');                
+            }
+        }
+        else {
+            return redirect('/login');
+        }
+        
     }
 
     public function logout() {

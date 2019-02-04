@@ -159,10 +159,18 @@
                     url: '/admin/update-user-status',
                     data: {approved:'1', user_id:user_id},
                     success:function(resp){
-                        alert('Success');
+                        Swal.fire(
+                          'Good job!',
+                          'You have approved the user!',
+                          'success'
+                        );
                     },
                     error:function(){
-                        alert('Error');
+                        Swal.fire(
+                          'Oops!',
+                          'Change approval failed!',
+                          'error'
+                        );
                     }
                 });
 
@@ -177,10 +185,18 @@
                     url: '/admin/update-user-status',
                     data: {approved:'0', user_id:user_id},
                     success:function(resp){
-                        alert('Success');
+                        Swal.fire(
+                          'Oh no!',
+                          'You have unapproved the user!',
+                          'error'
+                        );
                     },
                     error:function(){
-                        alert('Error');
+                        Swal.fire(
+                          'Oops!',
+                          'Change approval failed!',
+                          'error'
+                        );
                     }
                 });
             }
