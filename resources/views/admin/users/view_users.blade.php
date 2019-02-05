@@ -220,8 +220,8 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    @endif                                        
-                                            		<button type="button" rel="{{$user['id']}}" class="btn btn-danger btn-sm deleteUser">Delete</button>
+                                                    @endif                                                
+                                            		<button type="submit" rel="{{$user['id']}}" class="btn btn-danger btn-sm deleteUser">Delete</button>
                                         		</td>
                                             </tr>
                                             @endforeach
@@ -257,10 +257,10 @@
     </script>
 
     <script>
-    	
+        
     $(document).ready(function() {
-    	$(".userStatus").change(function(){
-    		var user_id = $(this).attr('rel');
+        $(".userStatus").change(function(){
+            var user_id = $(this).attr('rel');
             if($(this).prop("checked") == true){
                 //make status enabled
                 /*alert("Enabled!")*/
@@ -313,7 +313,7 @@
                     }
                 });
             }
-    	});
+        });
     });
 
     </script>
