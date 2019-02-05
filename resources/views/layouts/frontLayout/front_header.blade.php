@@ -2,10 +2,13 @@
 
 use App\User;
 $datingCount = User::datingProfileExists(Auth::User()['id']);
+$username = Auth::User()['username'];
 if($datingCount == 1){
-  $datingCountText = "My Profile";
+  $datingCountText = "Edit Profile";
+  $datingCountText2 = "My Photos";
 } else {
   $datingCountText = "Add Profile";
+  $datingCountText2 = "Add Photos";
 }
 
 ?>
@@ -14,7 +17,7 @@ if($datingCount == 1){
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="{{url('/')}}">
-          Date Thing </a>
+          Day Thing </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
@@ -26,8 +29,18 @@ if($datingCount == 1){
         <ul class="navbar-nav ml-auto">
           @if(Session::get('userSession'))
           <li class="nav-item">
+            <a href="{{url('/profile/'.$username)}}" class="nav-link">
+              <i class="material-icons">pages</i>My Profile 
+            </a>
+          </li>          
+          <li class="nav-item">
             <a href="{{route('step/2')}}" class="nav-link">
-              <i class="material-icons">account_circle</i>{{$datingCountText}} 
+              <i class="material-icons">person</i>{{$datingCountText}} 
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('step/3')}}">
+              <i class="material-icons">photo</i> {{$datingCountText2}}
             </a>
           </li>        
           <li class="nav-item">
@@ -42,7 +55,7 @@ if($datingCount == 1){
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('register')}}">
+            <a class="nav-link" href="{{url('/register')}}">
               <i class="material-icons">power_settings_new</i> Register
             </a>
           </li>

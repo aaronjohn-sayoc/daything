@@ -35,10 +35,10 @@
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text">
-                      <i class="material-icons">mail</i>
+                      <i class="material-icons">bookmark</i>
                     </span>
                   </div>
-                  <input id="email" name="email" type="email" class="form-control" placeholder="Email">
+                  <input id="username" name="username" type="text" class="form-control" placeholder="Username" required>
                 </div>
                 <div class="input-group">
                   <div class="input-group-prepend">
@@ -46,11 +46,11 @@
                       <i class="material-icons">lock_outline</i>
                     </span>
                   </div>
-                  <input id="password" name="password" type="password" class="form-control" placeholder="Password">
+                  <input id="password" name="password" type="password" class="form-control" placeholder="Password" required>
                 </div>             
               </div>
               <div class="card-footer text-center">
-                <button type="submit" class="btn btn-rose btn-link  btn-wd btn-lg">Login</button>
+                <button type="submit" class="btn btn-rose btn-link btn-block text-center btn-wd btn-lg">Login</button>
               </div>
             </form>
           </div>

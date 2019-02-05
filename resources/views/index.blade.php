@@ -61,6 +61,46 @@
           </div>
         </div>
       </div>
+
+      <div class="section text-center">
+        <h2 class="title">Our recent users</h2>
+        <div class="row">
+          <?php $count = 1 ?>
+          @foreach($recent_users as $user)
+            @if(!empty($user->details) && $user->details->approved == '1')
+              @if($count<=3)
+                <div class="col-md-4 ml-auto mr-auto">
+                    <div class="card">
+                      @foreach($user->photos as $key => $photo)
+                        @if($photo->default_photo == "Yes")
+                          <?php $user_photo = $user->photos[$key]->photo; ?>
+                        @else
+                          <?php $user_photo = $user->photos[0]->photo; ?>
+                        @endif
+                      @endforeach
+                      @if(!empty($user_photo))
+                        <a href="{{url('/profile/'.$user->username)}}"><img class="card-img-top" src="{{asset('images/frontend_images/photos/'.$user_photo)}}"></a>
+                      @elseif(empty($user_photo))
+                        <a href="{{url('/profile/'.$user->username)}}"><img class="card-img-top" src="https://epicattorneymarketing.com/wp-content/uploads/2016/07/Headshot-Placeholder-1.png"></a>
+                      @endif
+                      <div class="card-body">
+                        <h4 class="card-title">{{$user->name}}</h4>
+                        <span class="card-text description">@if(!empty($user->details->gender)){{ucfirst(trans($user->details->gender))}},@endif</span>
+                        <span class="card-text description">
+                          @if(!empty($user->details->date_of_birth))
+                          <?php $date_of_birth = $user->details->date_of_birth; 
+                          echo $diff = date('Y') - date('Y', strtotime($date_of_birth)); ?> 
+                          @endif 
+                        </span>        
+                      </div>
+                    </div>
+                </div>
+              <?php $count++; ?>
+              @endif
+            @endif
+          @endforeach
+        </div>
+      </div>
       <div class="section text-center">
         <h2 class="title">Here is our team</h2>
         <div class="team">

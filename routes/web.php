@@ -19,7 +19,9 @@
 
 Route::get('/', 'IndexController@index');
 
-Route::any('/register', 'UsersController@register')->name('register');
+Route::any('/register', 'UsersController@register');
+
+Route::get('/profile/{username}', 'UsersController@viewProfile');
 
 Route::any('/login', 'UsersController@login')->name('login');
 
@@ -27,9 +29,17 @@ Route::get('/logout', 'UsersController@logout')->name('logout');
 
 Route::any('/check-email', 'UsersController@checkEmail');
 
+Route::any('/check-username', 'UsersController@checkUsername');
+
 Route::any('/step/2', 'UsersController@step2')->name('step/2');
 
+Route::any('/step/3', 'UsersController@step3')->name('step/3');
+
 Route::get('/review', 'UsersController@review')->name('review');
+
+Route::get('/delete-photo/{photo}', 'UsersController@deletePhoto');
+
+Route::get('/default-photo/{photo}', 'UsersController@defaultPhoto');
 
 Route::get('/admin', 'AdminController@login');
 
@@ -43,9 +53,15 @@ Route::get('/admin/settings', 'AdminController@settings');
 
 Route::get('/admin/check-pwd','AdminController@chkPassword');
 
-Route::get('/admin/view-users','AdminController@viewUsers');
+Route::any('/admin/view-users','AdminController@viewUsers');
 
 Route::any('/admin/update-user-status', 'AdminController@updateUserStatus');
+
+Route::any('/admin/update-user-details', 'AdminController@updateUserDetails');
+
+Route::any('/admin/update-photo-status', 'AdminController@updatePhotoStatus');
+
+Route::delete('/admin/delete-user/', 'AdminController@deleteUser');
 
 Route::get('/admin/logout', 'AdminController@logout');
 

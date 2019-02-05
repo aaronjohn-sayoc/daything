@@ -35,6 +35,10 @@ class User extends Authenticatable
         return $this->hasOne('App\UsersDetail');
     }
 
+    public function photos() {
+        return $this->hasMany('App\UsersPhoto');
+    }
+
     public static function datingProfileExists($user_id) {
         $datingCount = UsersDetail::select('user_id', 'approved')->where(['user_id'=>$user_id, 'approved'=>'1'])->count();
         return $datingCount;

@@ -47,12 +47,7 @@ $datingProfile = User::datingProfileDetails(Auth::User()['id']);
               </div>
               <p class="description text-center">{{$datingCountText2}}</p>
               <div class="card-body">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="material-icons">person</i>
-                      </span>
-                    </div>
+                <div class="form-group">
                           <select id="marital_status" name="marital_status" class="form-control selectpicker" data-style="btn btn-link">
                           <option value="single" @if (!empty($datingProfile['marital_status']) && $datingProfile['marital_status']=="single") selected="" @endif>Single</option>
                           <option value="relationship" @if (!empty($datingProfile['marital_status']) && $datingProfile['marital_status']=="relationship") selected="" @endif>In A Relationship</option>
@@ -60,19 +55,24 @@ $datingProfile = User::datingProfileDetails(Auth::User()['id']);
                           <option value="complicated" @if (!empty($datingProfile['marital_status']) && $datingProfile['marital_status']=="complicated") selected="" @endif>It's Complicated</option>
                         </select>
                 </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="material-icons">accessibility</i>
-                      </span>
-                    </div>
-                        <select id="body_type" name="body_type" class="form-control selectpicker" data-style="btn btn-link">
+                <div class="form-group">
+                          <select id="body_type" name="body_type" class="form-control selectpicker" data-style="btn btn-link">
                           <option value="slim"  @if (!empty($datingProfile['body_type']) && $datingProfile['body_type']=="slim") selected="" @endif>Slim</option>
                           <option value="average" @if (!empty($datingProfile['body_type']) && $datingProfile['body_type']=="average") selected="" @endif>Average</option>
                           <option value="athletic" @if (!empty($datingProfile['body_type']) && $datingProfile['body_type']=="athletic") selected="" @endif>Athletic</option>
                           <option value="heavy" @if (!empty($datingProfile['body_type']) && $datingProfile['body_type']=="heavy") selected="" @endif>Heavy</option>
-                        </select>
+                          </select>
                 </div>
+
+                 <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">bookmark</i>
+                    </span>
+                  </div>
+                  <input id="username" name="username" type="usernamee" class="form-control" readonly placeholder="Username" @if (!empty(Session::get('userSession'))) value="{{ Session::get('userSession') }}" @endif required>
+                </div>               
+
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text">
@@ -80,7 +80,7 @@ $datingProfile = User::datingProfileDetails(Auth::User()['id']);
                     </span>
                   </div>
                   <!-- markup -->
-                  <input class="datepicker form-control" id="date_of_birth" name="date_of_birth" type="text" placeholder="Date of Birth" @if (!empty($datingProfile['date_of_birth'])) value="{{ $datingProfile['date_of_birth'] }}" @endif>
+                  <input class="datepicker form-control" id="date_of_birth" name="date_of_birth" type="text" placeholder="Date of Birth" @if (!empty($datingProfile['date_of_birth'])) value="{{ $datingProfile['date_of_birth'] }}" @endif required>
                 </div>              
                 <div class="input-group">
                   <div class="input-group-prepend">
@@ -88,7 +88,7 @@ $datingProfile = User::datingProfileDetails(Auth::User()['id']);
                       <i class="material-icons">format_line_spacing</i>
                     </span>
                   </div>
-                  <input id="height" name="height" type="height" class="form-control" placeholder="Height" @if (!empty($datingProfile['height'])) value="{{ $datingProfile["height"] }}" @endif>
+                  <input id="height" name="height" type="height" class="form-control" placeholder="Height" @if (!empty($datingProfile['height'])) value="{{ $datingProfile["height"] }}" @endif required>
                 </div>
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -96,11 +96,11 @@ $datingProfile = User::datingProfileDetails(Auth::User()['id']);
                         <i class="material-icons">info</i>
                       </span>
                     </div>
-                    <textarea id="description" name="description" class="form-control" id="description" rows="3" placeholder="Description">@if (!empty($datingProfile['description'])) {{ $datingProfile["description"] }} @endif</textarea>
+                    <textarea name="description" class="form-control" id="description" rows="3" required placeholder="Description">@if (!empty($datingProfile['description'])) {{ $datingProfile["description"] }} @endif</textarea>
                 </div>
                 <div class="form-check form-check-radio">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="gender" id="gender1" value="male" @if (!empty($datingProfile['gender']) && $datingProfile['gender']=="male") checked @endif>
+                        <input class="form-check-input" required type="radio" name="gender" id="gender1" value="male" @if (!empty($datingProfile['gender']) && $datingProfile['gender']=="male") checked @endif>
                         Male
                         <span class="circle">
                             <span class="check"></span>
@@ -109,7 +109,7 @@ $datingProfile = User::datingProfileDetails(Auth::User()['id']);
                 </div>
                 <div class="form-check form-check-radio">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="gender" id="gender2" value="female" @if (!empty($datingProfile['gender']) && $datingProfile['gender']=="female") checked @endif>
+                        <input class="form-check-input" required type="radio" name="gender" id="gender2" value="female" @if (!empty($datingProfile['gender']) && $datingProfile['gender']=="female") checked @endif>
                         Female
                         <span class="circle">
                             <span class="check"></span>
@@ -118,13 +118,14 @@ $datingProfile = User::datingProfileDetails(Auth::User()['id']);
                 </div>              
               </div>
               <div class="card-footer text-center">
-                <button type="submit" class="btn btn-rose btn-link  btn-wd btn-lg">Proceed</button>
+                <button type="submit" class="btn btn-rose btn-link btn-block text-center btn-wd btn-lg">Proceed</button>
               </div>
             </form>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
    <!--  Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
 
@@ -133,7 +134,8 @@ $datingProfile = User::datingProfileDetails(Auth::User()['id']);
 $(document).ready(function() {
 
     $('.datepicker').datetimepicker({
-        format: 'MM/DD/YYYY'         
+        format: 'MM/DD/YYYY'
+
     });
 })
 </script>

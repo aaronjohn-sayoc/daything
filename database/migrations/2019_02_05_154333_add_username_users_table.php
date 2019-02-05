@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddStatusUsersDetails extends Migration
+class AddUsernameUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddStatusUsersDetails extends Migration
      */
     public function up()
     {
-        Schema::table('users_details', function (Blueprint $table) {
-            $table->tinyInteger('approved');
-        });
+    Schema::table('users', function($table) {
+        $table->string('username');
+    });
     }
 
     /**
@@ -25,6 +25,8 @@ class AddStatusUsersDetails extends Migration
      */
     public function down()
     {
-        //
+    Schema::table('users', function($table) {
+        $table->dropColumn('username');
+    });
     }
 }

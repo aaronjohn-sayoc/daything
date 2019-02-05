@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\UsersDetail;
+use App\UsersPhoto;
 
 class AdminController extends Controller
 {
@@ -89,8 +90,7 @@ class AdminController extends Controller
 
     public function viewUsers(Request $request){
         if (Session::has('adminSession')) {
-            $users = User::with('details')->where('admin', '!=', '1')->get();
-            $users = json_decode(json_encode($users), true);
+            $users = User::with('details')->with('photos')->where('admin', '!=', '1')->get();
             return view('admin.users.view_users')->with(compact('users'));
 
         } else {
@@ -100,8 +100,44 @@ class AdminController extends Controller
 
     public function updateUserStatus(Request $request) {
         $data = $request->all();
-        UsersDetail::where('user_id',$data['user_id'])->update(['approved'=>$data['approved']]);
+        UsersDetail::where('user_id',$data['user_id'])->update(['approved'=>$data['approved']]);            
     }
+    public function updatePhotoStatus(Request $request) {
+        $data = $request->all();
+        UsersPhoto::where('id',$data['photo_id'])->update(['approved'=>$data['approved']]);
+    }
+
+    public function updateUserDetails(Request $request) {
+        if($request->ajax() && Session::has('adminSession'))
+        {
+        $data = $request->all();
+        UsersDetail::where('user_id',$data['user_id'])->update([
+        'date_of_birth' => $data['date_of_birth'],
+        'marital_status' => $data['marital_status'],
+        'body_type' => $data['body_type'],
+        'height' => $data['height'],
+        'description' => $data['description'],
+        'gender' => $data['gender'],
+         ]);
+        return "AJAX";
+        } else {
+            return redirect('admin')->with('flash_message_warning', "Please login as admin to access dashboard!");              
+        }
+        return redirect('/admin/view-users');  
+
+    }
+
+    public function deleteUser(Request $request) {
+        if($request->ajax()) {
+            $data = $request->all();
+            User::where('id', $data['id'])->delete();
+            return "true"; 
+            return redirect('/admin/view-users');
+        } else {
+            return redirect('/login')->with('flash_message_warning', "Please login as admin to access dashboard!");
+        }
+    }    
+
 
     public function logout() {
         Session::flush();
