@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <link href="{{asset('css/frontend_css/material-kit.min.css?v=2.1.1')}}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
   
   <!-- Personal CSS -->
   <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">

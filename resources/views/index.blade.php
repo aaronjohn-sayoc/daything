@@ -31,7 +31,7 @@
         <div class="features">
           <div class="row">
             <div class="col-md-4">
-              <div class="info">
+              <div class="info hvr-float">
                 <div class="icon icon-rose">
                   <i class="material-icons">supervisor_account</i>
                 </div>
@@ -40,7 +40,7 @@
               </div>
             </div>
             <div class="col-md-4">
-              <div class="info">
+              <div class="info hvr-float">
                 <div class="icon icon-rose">
                   <i class="material-icons">camera_alt</i>
                 </div>
@@ -49,7 +49,7 @@
               </div>
             </div>
             <div class="col-md-4">
-              <div class="info">
+              <div class="info hvr-float">
                 <div class="icon icon-rose">
                   <i class="material-icons">loyalty</i>
                 </div>
