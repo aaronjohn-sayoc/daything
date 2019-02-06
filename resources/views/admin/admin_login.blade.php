@@ -9,8 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/backend_images/favicon.png')}}">
-    <title>Admin Login</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('/images/frontend_images/like.png')}}">
+    <title>Daything - Admin Login</title>
     <!-- Custom CSS -->
     <link href="{{asset('css/backend_css/dist/css/style.min.css')}}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

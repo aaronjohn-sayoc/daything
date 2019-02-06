@@ -6,7 +6,7 @@
         <script>
           document.write(new Date().getFullYear())
         </script> made with <i class="material-icons">favorite</i> by
-        <a href="#" target="_blank">Aaron Sayoc.</a>
+        <a href="https://aaronjohn-sayoc.github.io/dev-portfolio" target="_blank">Aaron Sayoc.</a>
       </div>
     </div>
   </footer>

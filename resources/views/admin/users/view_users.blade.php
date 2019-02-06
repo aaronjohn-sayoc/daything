@@ -1,3 +1,7 @@
+<?php $mainPage = "Admin" ?>
+
+<?php $pageTitle = "View Users" ?>
+
 @extends('layouts.adminLayout.admin_design')
 
 @section('content')
@@ -16,8 +20,8 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Users</li>
+                                    <li class="breadcrumb-item"><a href="#"><?php echo $mainPage ?></a></li>
+                                    <li class="breadcrumb-item active" aria-current="page"><?php echo $pageTitle ?></li>
                                 </ol>
                             </nav>
                         </div>
@@ -44,6 +48,7 @@
                                         <thead>
                                             <tr>
                                                 <th>User ID</th>
+                                                <th>Username</th>
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Registered On</th>
@@ -54,6 +59,7 @@
                                         	@foreach($users as $user)
                                             <tr>
                                                 <td>{{$user['id']}}</td>
+                                                <td>{{$user['username']}}</td>
                                                 <td>{{$user['name']}}</td>
                                                 <td>{{$user['email']}}</td>
                                                 <td>{{$user['created_at']}}</td>

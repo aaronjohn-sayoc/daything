@@ -1,14 +1,41 @@
 
 #landingpagehdr {
 
-background-image: url('../images/frontend_images/profile_city.jpg') !important;
+background-image: url('../images/frontend_images/couple-icecream.jpg') !important;
+background-size: cover; 
+background-position: center center;
 
 }
 
 #registerpagehdr {
-	background-image: url('../images/frontend_images/bg7.jpg'); 
+	background-image: url('../images/frontend_images/sandstorm-bg.jpg'); 
 	background-size: cover; 
 	background-position: center center;
+}
+
+#profilepagehdr {
+  background-image: url('../images/frontend_images/mountain-bg.jpg'); 
+  background-size: cover; 
+  background-position: center center;
+}
+
+#loginpagehdr {
+  background-image: url('../images/frontend_images/roadforest-bg.jpg'); 
+  background-size: cover; 
+  background-position: center center;
+}
+
+#step2pagehdr {
+  background-image: url('../images/frontend_images/fish-bg.jpg'); 
+  background-size: cover; 
+  background-position: center center;
+}
+
+#reviewpagehdr {
+  background-image: url('../images/frontend_images/boatriver-bg.jpg'); 
+  background-size: cover; 
+  background-position: center center;
+  padding-top: 30vh;
 }
 
   .login-page .page-header {
@@ -17,7 +44,7 @@ background-image: url('../images/frontend_images/profile_city.jpg') !important;
     height: 100%;
   }
   .login-page .page-header>.container {
-    padding-top: 10vh;
+    padding-top: 5vh;
     
   }
 
@@ -84,3 +111,21 @@ a.dropdown-item:hover {
 .copyright > a {
   color: #e91e63 !important;
 }
+
+.card-description > a {
+  color: #e91e63 !important;
+}
+
+.icon-rose > .material-icons {
+  font-size: 5rem !important;
+}
+
+
+/*.navbar-rose {
+  background-color: #e91e63 !important;
+}
+
+.navbar {
+  color: #fff !important;
+}*/
+

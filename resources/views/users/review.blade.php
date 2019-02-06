@@ -1,10 +1,16 @@
+<?php
+
+$pageTitle = "Review"
+
+?>
+
 @extends('layouts.frontLayout.front_design')
 
 @section('content')
 
 <body class="login-page sidebar-collapse">
 
-  <div class="page-header header-filter" id="registerpagehdr">
+  <div class="page-header header-filter" id="reviewpagehdr">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-md-6 ml-auto mr-auto">

@@ -1,4 +1,3 @@
-
 @extends('layouts.frontLayout.front_design')
 
 @section('content')
@@ -8,12 +7,12 @@
   <div class="page-header header-filter"  id="landingpagehdr">
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
-          <h1 class="title">Your Story Starts With Us.</h1>
-          <h4>Every landing page needs a small description after the big bold title, that&apos;s why we added this text here. Add here all the information that can make you or your product create the first impression.</h4>
+        <div class="col-md-6 ml-auto text-center">
+          <h1 class="title">Get Started. Meet New People.</h1>
+          <h4>Connect with strangers around the world. Discover what you are passionate about.</h4>
           <br>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-raised btn-lg">
-            <i class="fa fa-play"></i> Watch video
+          <a href="https://www.youtube.com/watch?v=ruhCl6QVqRE" target="_blank" class="btn btn-rose btn-raised btn-lg">
+            <i class="fa fa-play"></i> Watch Video
           </a>
         </div>
       </div>
@@ -25,37 +24,37 @@
       <div class="section text-center">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
-            <h2 class="title">Let&apos;s talk product</h2>
-            <h5 class="description">This is the paragraph where you can write more details about your product. Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious, otherwise he wouldn&apos;t scroll to get here. Add a button if you want the user to see more.</h5>
+            <h2 class="title">Start Your Journey With Us.</h2>
+            <h5 class="description">On Day Thing, dating starts with just three steps. We let you match with the ones you are most compatible.</h5>
           </div>
         </div>
         <div class="features">
           <div class="row">
             <div class="col-md-4">
               <div class="info">
-                <div class="icon icon-info">
-                  <i class="material-icons">chat</i>
+                <div class="icon icon-rose">
+                  <i class="material-icons">supervisor_account</i>
                 </div>
-                <h4 class="info-title">Free Chat</h4>
-                <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
+                <h4 class="info-title">Create A Profile</h4>
+                <p>Make your own profile and stand out from the crowd. Just fill up the necessary information and your account is set up in no time. </p>
               </div>
             </div>
             <div class="col-md-4">
               <div class="info">
-                <div class="icon icon-success">
-                  <i class="material-icons">verified_user</i>
+                <div class="icon icon-rose">
+                  <i class="material-icons">camera_alt</i>
                 </div>
-                <h4 class="info-title">Verified Users</h4>
-                <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
+                <h4 class="info-title">Fill Up Gallery</h4>
+                <p>Add photos to your profile and have a gallery that others can see. Set up your best looking shot as your default photo.</p>
               </div>
             </div>
             <div class="col-md-4">
               <div class="info">
-                <div class="icon icon-danger">
-                  <i class="material-icons">fingerprint</i>
+                <div class="icon icon-rose">
+                  <i class="material-icons">loyalty</i>
                 </div>
-                <h4 class="info-title">Fingerprint</h4>
-                <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
+                <h4 class="info-title">View Profiles</h4>
+                <p>Once you found someone you like, you can easily access their profiles anytime! Each member has their own unique profile.</p>
               </div>
             </div>
           </div>
@@ -63,7 +62,7 @@
       </div>
 
       <div class="section text-center">
-        <h2 class="title">Our recent users</h2>
+        <h2 class="title">Our Recent Users</h2>
         <div class="row">
           <?php $count = 1 ?>
           @foreach($recent_users as $user)
@@ -101,8 +100,8 @@
           @endforeach
         </div>
       </div>
-      <div class="section text-center">
-        <h2 class="title">Here is our team</h2>
+{{--       <div class="section text-center">
+        <h2 class="title">Our Testimonies</h2>
         <div class="team">
           <div class="row">
             <div class="col-md-4">
@@ -203,7 +202,7 @@
                     Send Message
                   </button>
                 </div>
-              </div>
+              </div> --}}
             </form>
           </div>
         </div>

@@ -1,3 +1,9 @@
+<?php
+
+$pageTitle = "Step 2"
+
+?>
+
 @extends('layouts.frontLayout.front_design')
 
 @section('content')
@@ -21,7 +27,7 @@ $datingProfile = User::datingProfileDetails(Auth::User()['id']);
 
 <body class="login-page sidebar-collapse">
 
-  <div class="page-header header-filter" id="registerpagehdr">
+  <div class="page-header header-filter" id="step2pagehdr">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-md-6 ml-auto mr-auto">

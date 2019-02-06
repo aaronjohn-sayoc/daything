@@ -1,4 +1,9 @@
+<?php $mainPage = "Admin" ?>
+
+<?php $pageTitle = "Settings" ?>
+
 @extends('layouts.adminLayout.admin_design')
+
 @section('content')  
 
     <div id="main-wrapper">
@@ -15,8 +20,8 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Settings</li>
+                                    <li class="breadcrumb-item"><a href="#"><?php echo $mainPage ?></a></li>
+                                    <li class="breadcrumb-item active" aria-current="page"><?php echo $pageTitle ?></li>
                                 </ol>
                             </nav>
                         </div>

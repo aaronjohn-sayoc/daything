@@ -65,5 +65,5 @@ Route::delete('/admin/delete-user/', 'AdminController@deleteUser');
 
 Route::get('/admin/logout', 'AdminController@logout');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'IndexController@index');
 

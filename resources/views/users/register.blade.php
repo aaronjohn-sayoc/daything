@@ -1,3 +1,9 @@
+<?php
+
+$pageTitle = "Register"
+
+?>
+
 @extends('layouts.frontLayout.front_design')
 
 @section('content')

@@ -179,7 +179,6 @@ class UsersController extends Controller
         if (Session::has('userSession')) {
         $userDetails = User::with('details')->with('photos')->where('username', $username)->first();
         return view ('users.profile')->with(compact('userDetails'));
-        /*echo '<pre>'; print_r($userDetails); die;*/
             
         } else {
             return redirect('/login')->with('flash_message_error', "Please login as a user to access!");

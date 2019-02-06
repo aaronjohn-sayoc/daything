@@ -1,10 +1,16 @@
+<?php
+
+$pageTitle = "Profile"
+
+?>
+
 @extends('layouts.frontLayout.front_design')
 
 @section('content')
 
 <body class="profile-page sidebar-collapse">
 
-  <div class="page-header header-filter" data-parallax="true" style="background-image: url('../images/frontend_images/city-profile.jpg');"></div>
+  <div class="page-header header-filter" id="profilepagehdr"></div>
   <div class="main main-raised">
     <div class="profile-content">
       <div class="container">

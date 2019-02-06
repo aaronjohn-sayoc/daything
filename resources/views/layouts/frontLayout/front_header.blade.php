@@ -13,11 +13,12 @@ if($datingCount == 1){
 
 ?>
 
-  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-md" color-on-scroll="100" id="sectionsNav">
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="{{url('/')}}">
-          Day Thing </a>
+          Daything
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
@@ -28,11 +29,13 @@ if($datingCount == 1){
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           @if(Session::get('userSession'))
+          @if($datingCount == 1)
           <li class="nav-item">
             <a href="{{url('/profile/'.$username)}}" class="nav-link">
               <i class="material-icons">pages</i>My Profile 
             </a>
-          </li>          
+          </li>
+          @endif          
           <li class="nav-item">
             <a href="{{route('step/2')}}" class="nav-link">
               <i class="material-icons">person</i>{{$datingCountText}} 
@@ -61,17 +64,17 @@ if($datingCount == 1){
           </li>
           @endif
           <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="#" target="_blank" data-original-title="Tweet us on Twitter!">
+            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/" target="_blank" data-original-title="Tweet us on Twitter!">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="#" target="_blank" data-original-title="Like us on Facebook!">
+            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/" target="_blank" data-original-title="Like us on Facebook!">
               <i class="fa fa-facebook-square"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="#" target="_blank" data-original-title="Share us on Instagram!">
+            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/" target="_blank" data-original-title="Share us on Instagram!">
               <i class="fa fa-instagram"></i>
             </a>
           </li>

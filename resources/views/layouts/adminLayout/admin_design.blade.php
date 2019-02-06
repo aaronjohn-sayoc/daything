@@ -10,8 +10,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/backend_images/favicon.png')}}">
-    <title>Date Thing</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('/images/frontend_images/like.png')}}">
+      <title>
+        <?php if(!empty($pageTitle)) {
+        echo "Daything"." - ".$pageTitle;
+        }
+        else {
+          echo "Daything";
+        }
+        ?>
+      </title>
     <!-- Custom CSS -->
     <link href="{{asset('libs/flot/css/float-chart.css')}}" rel="stylesheet">
     <!--Custom CSS-->

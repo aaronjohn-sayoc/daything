@@ -1,3 +1,9 @@
+<?php
+
+$pageTitle = "Step 3"
+
+?>
+
 @extends('layouts.frontLayout.front_design')
 
 @section('content')
