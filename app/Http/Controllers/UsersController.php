@@ -125,7 +125,7 @@ class UsersController extends Controller
                         //Give randon number to image and add to extension to avoid duplicates
                         $fileName = rand(111,99999).'.'.$extension;
                         //Set image path
-                        $image_path = 'images/frontend_images/photos/'.$fileName;
+                        $image_path = '/images/frontend_images/photos/'.$fileName;
                         //Intervetion code for uploading image
                         Image::make($file)->save($image_path);
 
@@ -136,9 +136,6 @@ class UsersController extends Controller
                         $photo->save();   
 
                     }
-                }
-                else {
-                    return redirect('/step/3')->with('flash_message_success', "You have NOT succesfully uploaded your photo(s)!");
                 }
                 return redirect('/step/3')->with('flash_message_success', "You have succesfully uploaded your photo(s)!");
             }
