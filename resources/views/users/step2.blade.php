@@ -143,7 +143,7 @@ $(document).ready(function() {
     $('.datepicker').datetimepicker({
 
         format: 'MM/DD/YYYY',
-        maxDate: 0
+        maxDate: new Date()
 
     });
 })
