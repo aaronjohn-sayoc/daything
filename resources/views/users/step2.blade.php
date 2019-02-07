@@ -136,11 +136,19 @@ $datingProfile = User::datingProfileDetails(Auth::User()['id']);
    <!--  Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
 
 
+
 <script>
 $(document).ready(function() {
 
+    var currentYear = (new Date).getFullYear();
+    var currentMonth = (new Date).getMonth() + 1;
+    var currentDay = (new Date).getDate();
+
     $('.datepicker').datetimepicker({
-        format: 'MM/DD/YYYY'
+
+        format: 'MM/DD/YYYY',
+        minDate: new Date((currentYear - 1), 12, 1),
+        maxDate: new Date(currentYear, 11, 31)
 
     });
 })
