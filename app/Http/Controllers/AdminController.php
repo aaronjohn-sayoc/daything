@@ -77,7 +77,7 @@ class AdminController extends Controller
                 $current_password = $data['current_pwd'];
                 if(Hash::check($current_password,$check_password->password)){
                     $password = bcrypt($data['new_pwd']);
-                    User::where('id','1')->update(['password'=>$password]);
+                    User::where('admin','1')->update(['password'=>$password]);
                     return redirect('admin/settings')->with('flash_message_success', 'Password updated successfully!');
                 }else {
                     return redirect('admin/settings')->with('flash_message_error', 'Your current password is wrong!');
