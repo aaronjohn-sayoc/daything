@@ -140,15 +140,10 @@ $datingProfile = User::datingProfileDetails(Auth::User()['id']);
 <script>
 $(document).ready(function() {
 
-    var currentYear = (new Date).getFullYear();
-    var currentMonth = (new Date).getMonth() + 1;
-    var currentDay = (new Date).getDate();
-
     $('.datepicker').datetimepicker({
 
         format: 'MM/DD/YYYY',
-        minDate: new Date((currentYear - 1), 12, 1),
-        maxDate: new Date(currentYear, 11, 31)
+        maxDate: 0
 
     });
 })
