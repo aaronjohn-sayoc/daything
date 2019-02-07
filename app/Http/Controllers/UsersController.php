@@ -125,7 +125,7 @@ class UsersController extends Controller
                         //Give randon number to image and add to extension to avoid duplicates
                         $fileName = rand(111,99999).'.'.$extension;
                         //Set image path
-                        $image_path = 'images/frontend_images/photos'.$fileName;
+                        $image_path = 'images/frontend_images/photos/' .$fileName;
                         //Intervetion code for uploading image
                         Image::make($file)->save($image_path);
 
