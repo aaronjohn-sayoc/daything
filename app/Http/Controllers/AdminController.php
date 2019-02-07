@@ -123,7 +123,7 @@ class AdminController extends Controller
         } else {
             return redirect('admin')->with('flash_message_warning', "Please login as admin to access dashboard!");              
         }
-        return redirect('/admin/view-users');  
+         
 
     }
 

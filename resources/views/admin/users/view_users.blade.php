@@ -391,7 +391,7 @@
     <script>
 
     $(document).ready(function() {
-        $("#edituseradminbtn").click(function(event){
+        $(".submituser").click(function(event){
             event.preventDefault();
             var user_id = $('#user_id').val();
             var date_of_birth = $('#date_of_birth').val()
