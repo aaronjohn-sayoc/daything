@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://http://mysterious-taiga-19135.herokuapp.com'),
+    'url' => env('APP_URL', 'http://mysterious-taiga-19135.herokuapp.com'),
 
     'asset_url' => env('ASSET_URL', null),
 
