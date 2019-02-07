@@ -131,7 +131,7 @@
                                                                     <div class="modal-body">
                                                                     <input class="userStatus" rel="{{$user['id']}}" id="userStatus" name="userStatus" type="checkbox" data-toggle="toggle" data-on="On" data-off="Off" data-onstyle="success" data-offstyle="danger" @if($user['details']['approved'] == "1") checked @endif>                   
                                                                     <div class="card">
-                                                                        <form id="edituseradmin" name="{{$user['details']['id']}}" class="form-horizontal" method="post" action="/admin/{{$user['id']}}/update-user-details">
+                                                                        <form id="edituseradmin" name="{{$user['details']['id']}}" class="form-horizontal" method="post" action="{{url('admin/update-user-details')}}">
                                                                             @csrf
                                                                             
                                                                             <div class="card-body">
@@ -391,8 +391,8 @@
     <script>
 
     $(document).ready(function() {
-        $("#edituseradminbtn").click(function(){
-            
+        $("#edituseradminbtn").click(function(event){
+            event.preventDefault();
             var user_id = $('#user_id').val();
             var date_of_birth = $('#date_of_birth').val()
             var marital_status = $('#marital_status').val()
@@ -427,7 +427,7 @@
     });
 
     </script>
-    
+
     <script>
 
 
