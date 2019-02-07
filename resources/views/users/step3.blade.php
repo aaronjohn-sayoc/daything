@@ -15,7 +15,7 @@ $pageTitle = "Step 3"
       <div class="row">
         <div class="col-lg-4 col-md-6 ml-auto mr-auto">
           <div class="card card-login">
-            <form id="photo" name="photo" class="form" method="post" action="/step/3" enctype="multipart/form-data">
+            <form id="photo" name="photo" class="form" method="post" action="{{url('step/3')}}" enctype="multipart/form-data">
               @csrf
               <input type="hidden" class="form-control" id="user_id" name="user_id" value="{{Auth::User()->id}}">
               <div class="card-header card-header-rose text-center">
