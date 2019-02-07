@@ -391,8 +391,8 @@
     <script>
 
     $(document).ready(function() {
-        $("#edituseradminbtn").click(function(event){
-            event.preventDefault();
+        $("#edituseradminbtn").click(function(){
+            
             var user_id = $('#user_id').val();
             var date_of_birth = $('#date_of_birth').val()
             var marital_status = $('#marital_status').val()
@@ -427,7 +427,7 @@
     });
 
     </script>
-
+    
     <script>
 
 
