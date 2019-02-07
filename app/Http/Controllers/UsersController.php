@@ -137,6 +137,9 @@ class UsersController extends Controller
 
                     }
                 }
+                else {
+                    return redirect('/step/3')->with('flash_message_success', "You have NOT succesfully uploaded your photo(s)!");
+                }
                 return redirect('/step/3')->with('flash_message_success', "You have succesfully uploaded your photo(s)!");
             }
             $user_id = Auth::User()['id'];
