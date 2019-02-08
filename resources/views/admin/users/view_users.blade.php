@@ -186,7 +186,7 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="card-body">
-                                                                                <button id="edituseradminbtn" name="{{$user['id']}}" rel="{{$user[details]['user_id']}}" type="submit" class="btn btn-cyan submituser">Edit</button>
+                                                                                <button id="edituseradminbtn" name="{{$user['id']}}" rel="{{$user['details']['user_id']}}" type="submit" class="btn btn-cyan submituser">Edit</button>
                                                                             </div>
                                                                         </form>
                                                                         </div>
