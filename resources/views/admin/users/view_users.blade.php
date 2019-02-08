@@ -186,7 +186,7 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="card-body">
-                                                                                <button id="edituseradminbtn" name="{{$user['id']}}" type="submit" class="btn btn-cyan submituser">Edit</button>
+                                                                                <button id="edituseradminbtn" name="{{$user['id']}}" rel="{{$user[details]['user_id']}}" type="submit" class="btn btn-cyan submituser">Edit</button>
                                                                             </div>
                                                                         </form>
                                                                         </div>
@@ -393,7 +393,7 @@
     $(document).ready(function() {
         $(".submituser").click(function(event){
             event.preventDefault();
-            var user_id = $('#my_user_id').val();
+            var user_id = $(this).attr('rel');
             var date_of_birth = $('#date_of_birth').val();
             var marital_status = $('#marital_status').val();
             var body_type = $('#body_type').val();
