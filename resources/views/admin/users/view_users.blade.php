@@ -209,7 +209,7 @@
                                                                     <div class="modal-body">
                                                                     <div class="container">
                                                                         <div class="row">
-                                                                            @foreach($user['photo'] as $photo)
+                                                                            @foreach($user['photos'] as $photo)
                                                                             <div class="col-md-4 col-12">
                                                                                 <div class="card">
                                                                                     <img class="card-img-top" src="{{ url('/images/frontend_images/photos/'.$photo['photo']) }}">
