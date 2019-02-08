@@ -135,7 +135,7 @@
                                                                             @csrf
                                                                             
                                                                             <div class="card-body">
-                                                                                <input type="text" id="my_user_id" class="form-control" name="my_user_id" value="{{$user['id']}}">
+
                                                                                 <h4 class="card-title">Details of {{$user['name']}}</h4>
                                                                                 <div class="form-group row">
                                                                                     <label for="date_of_birth" class="col-sm-3 text-right control-label col-form-label">Date Of Birth</label>
