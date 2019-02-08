@@ -131,11 +131,11 @@
                                                                     <div class="modal-body">
                                                                     <input class="userStatus" rel="{{$user['id']}}" id="userStatus" name="userStatus" type="checkbox" data-toggle="toggle" data-on="On" data-off="Off" data-onstyle="success" data-offstyle="danger" @if($user['details']['approved'] == "1") checked @endif>                   
                                                                     <div class="card">
-                                                                        <form id="edituseradmin" name="{{$user['details']['id']}}" class="form-horizontal" method="post" action="{{url('admin/view-users/')}}">
+                                                                        <form id="edituseradmin" name="edituseradmin" class="form-horizontal" method="post" action="{{url('admin/view-users/')}}">
                                                                             @csrf
                                                                             
                                                                             <div class="card-body">
-                                                                                <input type="hidden" id="user_id" class="form-control" name="{{$user['id']}}" value="{{$user['id']}}">
+                                                                                <input type="text" id="my_user_id" class="form-control" name="my_user_id" value="{{$user['id']}}">
                                                                                 <h4 class="card-title">Details of {{$user['name']}}</h4>
                                                                                 <div class="form-group row">
                                                                                     <label for="date_of_birth" class="col-sm-3 text-right control-label col-form-label">Date Of Birth</label>
@@ -158,7 +158,7 @@
                                                                                 <div class="form-group row">
                                                                                     <label for="body_type"class="col-sm-3 text-right control-label col-form-label">Body Type</label>
                                                                                     <div class="col-sm-9">
-                                                                                        <select id="body_type" nambody_typee="body_type" class="select2 form-control custom-select">
+                                                                                        <select id="body_type" name="body_type" class="select2 form-control custom-select">
                                                                                           <option value="slim" @if (!empty($user['details']['body_type']) && $user['details']['body_type']=="slim") selected="" @endif>Slim</option>
                                                                                           <option value="average" @if (!empty($user['details']['body_type']) && $user['details']['body_type']=="average") selected="" @endif>Average</option>
                                                                                           <option value="athletic" @if (!empty($user['details']['body_type']) && $user['details']['body_type']=="athletic") selected="" @endif>Athletic</option>
@@ -393,19 +393,20 @@
     $(document).ready(function() {
         $(".submituser").click(function(event){
             event.preventDefault();
-            var user_id = $('#user_id').val();
-            var date_of_birth = $('#date_of_birth').val()
-            var marital_status = $('#marital_status').val()
-            var body_type = $('#body_type').val()
-            var height = $('#height').val()
+            var user_id = $('#my_user_id').val();
+            var date_of_birth = $('#date_of_birth').val();
+            var marital_status = $('#marital_status').val();
+            var body_type = $('#body_type').val();
+            var height = $('#height').val();
             var description = $('#description').val();
-            var gender = $('#gender').val()
+            var gender = $('#gender').val();
                 $.ajax({ 
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },                 
                     type: 'post',
                     url: '/admin/update-user-details',
+                    async: false,
                     data: {user_id:user_id, date_of_birth:date_of_birth, marital_status:marital_status, body_type:body_type, height:height, description:description, gender:gender},
                     success:function(resp){
                         Swal.fire(
@@ -413,6 +414,7 @@
                           'You have edited the user succesfully!',
                           'success'
                         );
+                        alert(user_id);
                     },
                     error:function(){
                         Swal.fire(
