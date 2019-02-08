@@ -212,7 +212,7 @@
                                                                             @foreach($user['photos'] as $photo)
                                                                             <div class="col-md-4 col-12">
                                                                                 <div class="card">
-                                                                                    <img class="card-img-top" src="{{ url('/images/frontend_images/photos/'.$photo['photo']) }}">
+                                                                                    <img class="card-img-top" src="">
                                                                                     <div class="card-body">
                                                                                         <h5 class="card-title">Approved:</h5>
                                                                                         <input class="userPhotoStatus" rel="{{$photo['id']}}" id="userPhotoStatus" name="userPhotoStatus" type="checkbox" data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger"@if($photo['approved'] == "1") checked @endif>
