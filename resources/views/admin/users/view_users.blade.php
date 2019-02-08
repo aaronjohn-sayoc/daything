@@ -414,7 +414,7 @@
                           'You have edited the user succesfully!',
                           'success'
                         );
-                        alert(user_id);
+                        
                     },
                     error:function(){
                         Swal.fire(
